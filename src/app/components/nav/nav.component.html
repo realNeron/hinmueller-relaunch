@@ -2,7 +2,7 @@
   <div class="container header-container">
     <div class="logo-area">
       <a routerLink="/home" (click)="closeMobileMenu()">
-        <img src="logo.png" alt="Versicherungsbüro Hinmüller" class="header-logo">
+        <img src="logo.png?v=2" alt="Versicherungsbüro Hinmüller" class="header-logo">
       </a>
     </div>
 
@@ -44,7 +44,7 @@
 <div class="mobile-drawer-overlay" [ngClass]="{'open': isMobileMenuOpen}" (click)="closeMobileMenu()"></div>
 <div class="mobile-drawer" [ngClass]="{'open': isMobileMenuOpen}">
   <div class="drawer-header">
-    <img src="logo.png" alt="Hinmüller Logo" class="drawer-logo">
+    <img src="logo.png?v=2" alt="Hinmüller Logo" class="drawer-logo">
     <button class="close-btn" (click)="closeMobileMenu()">
       <i class="fa-solid fa-xmark"></i>
     </button>
