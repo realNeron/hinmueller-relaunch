@@ -1,0 +1,479 @@
+<section class="claims-hero">
+  <div class="container claims-hero-container">
+    <span class="badge">Schadenmanagement</span>
+    <h1>Im Schadenfall an Ihrer Seite</h1>
+    <p class="lead-text">
+      „Wir kümmern uns.“ – Das können Sie wörtlich nehmen. Wir übernehmen das komplette Schadenmanagement für Ihre Verträge und vertreten Ihre Interessen gegenüber dem Versicherer.
+    </p>
+  </div>
+</section>
+
+<section class="section claims-content-section">
+  <div class="container">
+    <div class="claims-split-layout">
+      <!-- Left side: Form Wizard -->
+      <div class="form-wrapper">
+        <div class="card form-card glass-panel">
+          
+          <!-- Step Indicator -->
+          <div class="step-indicator" *ngIf="currentStep <= 4">
+            <div class="step-dot" [class.active]="currentStep >= 1" [class.completed]="currentStep > 1">
+              <span>1</span>
+              <label>Schadensart</label>
+            </div>
+            <div class="step-line" [class.completed]="currentStep > 1"></div>
+            <div class="step-dot" [class.active]="currentStep >= 2" [class.completed]="currentStep > 2">
+              <span>2</span>
+              <label>Details</label>
+            </div>
+            <div class="step-line" [class.completed]="currentStep > 2"></div>
+            <div class="step-dot" [class.active]="currentStep >= 3" [class.completed]="currentStep > 3">
+              <span>3</span>
+              <label>Kontaktdaten</label>
+            </div>
+            <div class="step-line" [class.completed]="currentStep > 3"></div>
+            <div class="step-dot" [class.active]="currentStep >= 4" [class.completed]="currentStep > 4">
+              <span>4</span>
+              <label>Bestätigung</label>
+            </div>
+          </div>
+
+          <!-- STEP 1: Schadensart & Datum -->
+          <div class="step-content animate-fade-in" *ngIf="currentStep === 1">
+            <h2>1. Um was für einen Schaden handelt es sich?</h2>
+            <p class="step-intro">Bitte wählen Sie die Schadensart und das Datum des Ereignisses aus.</p>
+            
+            <div class="form-group">
+              <label class="form-label">Schadensart *</label>
+              <div class="type-cards-grid">
+                <div 
+                  class="type-card" 
+                  [class.selected]="formData.claimType === 'sachschaden'"
+                  (click)="formData.claimType = 'sachschaden'"
+                >
+                  <i class="fa-solid fa-house-crack type-icon"></i>
+                  <div class="type-info">
+                    <strong>Sachschaden</strong>
+                    <span>Feuer, Leitungswasser, Elementarschaden, Hausrat, etc.</span>
+                  </div>
+                </div>
+
+                <div 
+                  class="type-card" 
+                  [class.selected]="formData.claimType === 'kfz'"
+                  (click)="formData.claimType = 'kfz'"
+                >
+                  <i class="fa-solid fa-car-burst type-icon"></i>
+                  <div class="type-info">
+                    <strong>Kfz-Schaden</strong>
+                    <span>Kollision, Steinschlag, Diebstahl, Wildschaden, Moped.</span>
+                  </div>
+                </div>
+
+                <div 
+                  class="type-card" 
+                  [class.selected]="formData.claimType === 'personenschaden'"
+                  (click)="formData.claimType = 'personenschaden'"
+                >
+                  <i class="fa-solid fa-user-injured type-icon"></i>
+                  <div class="type-info">
+                    <strong>Personenschaden</strong>
+                    <span>Unfälle, Verletzungen von Dritten oder eigene Invalidität.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group input-half mt-4">
+              <label for="occurrenceDate" class="form-label">Schadentag (Wann ist es passiert?) *</label>
+              <input 
+                type="date" 
+                id="occurrenceDate" 
+                [(ngModel)]="formData.occurrenceDate" 
+                class="form-control"
+                required
+              />
+            </div>
+
+            <div class="step-actions">
+              <button 
+                class="btn btn-primary" 
+                [disabled]="!formData.claimType || !formData.occurrenceDate"
+                (click)="nextStep()"
+              >
+                Weiter zu Details <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 2: Schadendetails -->
+          <div class="step-content animate-fade-in" *ngIf="currentStep === 2">
+            <h2>2. Was genau ist passiert?</h2>
+            <p class="step-intro">Beschreiben Sie bitte das Schadensereignis so genau wie möglich.</p>
+
+            <div class="form-group">
+              <label for="damagedItems" class="form-label">Was wurde beschädigt? (Objekt / Gegenstand / Fahrzeug) *</label>
+              <input 
+                type="text" 
+                id="damagedItems" 
+                [(ngModel)]="formData.damagedItems" 
+                class="form-control"
+                placeholder="z.B. Wohnzimmerdecke, Heckstoßstange des Autos, etc."
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="description" class="form-label">Schadenschilderung (Wie kam es zum Schaden?) *</label>
+              <textarea 
+                id="description" 
+                [(ngModel)]="formData.description" 
+                class="form-control" 
+                rows="4"
+                placeholder="Bitte beschreiben Sie den genauen Ablauf..."
+                required
+              ></textarea>
+            </div>
+
+            <div class="grid-2-col">
+              <div class="form-group">
+                <label for="estimatedCost" class="form-label">Geschätzte Schadenshöhe (€)</label>
+                <input 
+                  type="text" 
+                  id="estimatedCost" 
+                  [(ngModel)]="formData.estimatedCost" 
+                  class="form-control"
+                  placeholder="z.B. 500 € oder unbekannt"
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Wurde die Polizei gerufen? *</label>
+                <div class="radio-inline">
+                  <label class="radio-label">
+                    <input type="radio" name="policeInvolved" value="ja" [(ngModel)]="formData.policeInvolved" /> Ja
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="policeInvolved" value="nein" [(ngModel)]="formData.policeInvolved" /> Nein
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group animate-fade-in" *ngIf="formData.policeInvolved === 'ja'">
+              <label for="policeDetails" class="form-label">Polizeidaten (Dienststelle, Name des Beamten & Aktenzeichen)</label>
+              <input 
+                type="text" 
+                id="policeDetails" 
+                [(ngModel)]="formData.policeDetails" 
+                class="form-control"
+                placeholder="z.B. PI Mühldorf, Herr Müller, AZ: 1234/2026"
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Gibt es Zeugen? *</label>
+              <div class="radio-inline">
+                <label class="radio-label">
+                  <input type="radio" name="witnessesExist" value="ja" [(ngModel)]="formData.witnessesExist" /> Ja
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="witnessesExist" value="nein" [(ngModel)]="formData.witnessesExist" /> Nein
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group animate-fade-in" *ngIf="formData.witnessesExist === 'ja'">
+              <label for="witnessInfo" class="form-label">Name und Anschrift der Zeugen</label>
+              <textarea 
+                id="witnessInfo" 
+                [(ngModel)]="formData.witnessInfo" 
+                class="form-control" 
+                rows="2"
+                placeholder="Name, Adresse, Telefonnummer..."
+              ></textarea>
+            </div>
+
+            <div class="step-actions">
+              <button class="btn btn-secondary" (click)="prevStep()">
+                <i class="fa-solid fa-arrow-left"></i> Zurück
+              </button>
+              <button 
+                class="btn btn-primary" 
+                [disabled]="!formData.damagedItems || !formData.description || !formData.policeInvolved || !formData.witnessesExist"
+                (click)="nextStep()"
+              >
+                Weiter zu Kontaktdaten <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 3: Kontaktdaten -->
+          <div class="step-content animate-fade-in" *ngIf="currentStep === 3">
+            <h2>3. Wer meldet den Schaden?</h2>
+            <p class="step-intro">Bitte geben Sie Ihre Daten und ggf. Ihre Versicherungsdetails an.</p>
+
+            <div class="grid-2-col">
+              <div class="form-group">
+                <label for="name" class="form-label">Ihr vollständiger Name *</label>
+                <input 
+                  type="text" 
+                  id="name" 
+                  [(ngModel)]="formData.name" 
+                  class="form-control"
+                  placeholder="z.B. Max Mustermann"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="email" class="form-label">E-Mail-Adresse *</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  [(ngModel)]="formData.email" 
+                  class="form-control"
+                  placeholder="name@beispiel.de"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="address" class="form-label">Ihre Anschrift *</label>
+              <input 
+                type="text" 
+                id="address" 
+                [(ngModel)]="formData.address" 
+                class="form-control"
+                placeholder="Straße, Hausnummer, PLZ & Ort"
+                required
+              />
+            </div>
+
+            <div class="grid-2-col">
+              <div class="form-group">
+                <label for="phone" class="form-label">Telefonnummer *</label>
+                <input 
+                  type="tel" 
+                  id="phone" 
+                  [(ngModel)]="formData.phone" 
+                  class="form-control"
+                  placeholder="+49 (0) 12345 6789"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Wünschen Sie unseren Rückruf? *</label>
+                <div class="radio-inline">
+                  <label class="radio-label">
+                    <input type="radio" name="callbackDesired" value="ja" [(ngModel)]="formData.callbackDesired" /> Ja
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="callbackDesired" value="nein" [(ngModel)]="formData.callbackDesired" /> Nein
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid-2-col">
+              <div class="form-group">
+                <label for="insuranceNumber" class="form-label">Versicherungsgesellschaft / Scheinnummer</label>
+                <input 
+                  type="text" 
+                  id="insuranceNumber" 
+                  [(ngModel)]="formData.insuranceNumber" 
+                  class="form-control"
+                  placeholder="Falls zur Hand (z.B. VEMA/Münchener Verein)"
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Vorsteuerabzugsberechtigt? (Nur Gewerbe) *</label>
+                <div class="radio-inline">
+                  <label class="radio-label">
+                    <input type="radio" name="taxDeductible" value="ja" [(ngModel)]="formData.taxDeductible" /> Ja
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="taxDeductible" value="nein" [(ngModel)]="formData.taxDeductible" /> Nein
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="bankAccount" class="form-label">Konto für evtl. Entschädigungszahlung (IBAN / Kontoinhaber)</label>
+              <input 
+                type="text" 
+                id="bankAccount" 
+                [(ngModel)]="formData.bankAccount" 
+                class="form-control"
+                placeholder="DE89 0000 0000 ..."
+              />
+            </div>
+
+            <div class="step-actions">
+              <button class="btn btn-secondary" (click)="prevStep()">
+                <i class="fa-solid fa-arrow-left"></i> Zurück
+              </button>
+              <button 
+                class="btn btn-primary" 
+                [disabled]="!formData.name || !formData.email || !formData.phone || !formData.address || !formData.callbackDesired || !formData.taxDeductible"
+                (click)="nextStep()"
+              >
+                Weiter zur Bestätigung <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 4: Bestätigung & Datenschutz -->
+          <div class="step-content animate-fade-in" *ngIf="currentStep === 4">
+            <h2>4. Schadenmeldung überprüfen & abschicken</h2>
+            <p class="step-intro">Bitte prüfen Sie Ihre Angaben und tragen Sie den Sicherheitscode ein.</p>
+
+            <div class="review-box">
+              <h3>Zusammenfassung Ihrer Angaben:</h3>
+              <table class="review-table">
+                <tr>
+                  <td><strong>Schadensart:</strong></td>
+                  <td class="capitalize">{{ formData.claimType }}</td>
+                </tr>
+                <tr>
+                  <td><strong>Schadentag:</strong></td>
+                  <td>{{ formData.occurrenceDate | date:'dd.MM.yyyy' }}</td>
+                </tr>
+                <tr>
+                  <td><strong>Was wurde beschädigt:</strong></td>
+                  <td>{{ formData.damagedItems }}</td>
+                </tr>
+                <tr>
+                  <td><strong>Name des Meldenden:</strong></td>
+                  <td>{{ formData.name }}</td>
+                </tr>
+                <tr>
+                  <td><strong>Telefon / E-Mail:</strong></td>
+                  <td>{{ formData.phone }} / {{ formData.email }}</td>
+                </tr>
+              </table>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Sicherheitscode (Spam-Schutz) *</label>
+              <div class="captcha-wrapper">
+                <div class="captcha-box">
+                  {{ captchaCode }}
+                </div>
+                <button type="button" class="btn btn-secondary btn-sm refresh-btn" (click)="generateCaptcha()">
+                  <i class="fa-solid fa-rotate"></i> Neu generieren
+                </button>
+                <input 
+                  type="text" 
+                  [(ngModel)]="formData.captchaInput" 
+                  class="form-control captcha-input" 
+                  placeholder="Code eingeben"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="disclaimer-text">
+              <p>
+                <strong>Hinweis:</strong> Dieses Onlineformular ersetzt nicht die gesetzlich vorgeschriebene Beratung und Dokumentierung. Vor einer Regulierung oder einem weiteren Abschluss treten wir mit Ihnen in Kontakt.
+              </p>
+            </div>
+
+            <div class="form-group checkbox-group">
+              <label class="checkbox-label">
+                <input type="checkbox" [(ngModel)]="formData.privacyAccepted" required />
+                <span>Ich habe die <a routerLink="/legal" fragment="datenschutz" target="_blank" class="legal-link">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zu. *</span>
+              </label>
+            </div>
+
+            <div class="step-actions">
+              <button class="btn btn-secondary" (click)="prevStep()">
+                <i class="fa-solid fa-arrow-left"></i> Zurück
+              </button>
+              <button 
+                class="btn btn-primary btn-submit" 
+                [disabled]="!formData.captchaInput || !formData.privacyAccepted"
+                (click)="submitClaim()"
+              >
+                Schadenmeldung abschicken <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 5: Success Screen -->
+          <div class="step-content success-screen animate-fade-in" *ngIf="currentStep === 5">
+            <div class="success-icon-wrapper">
+              <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h2>Vielen Dank für Ihre Schadenmeldung!</h2>
+            <p class="success-intro">
+              Ihre Schadensdaten wurden erfasst und an uns übermittelt. Wir setzen uns schnellstmöglich mit Ihnen in Verbindung, um die nächsten Schritte mit dem Versicherer einzuleiten.
+            </p>
+
+            <div class="next-steps-info">
+              <h3>Was passiert als Nächstes?</h3>
+              <ul>
+                <li><i class="fa-solid fa-1"></i> Wir prüfen Ihre Angaben und ordnen diese Ihrem Versicherungsvertrag zu.</li>
+                <li><i class="fa-solid fa-2"></i> Wir leiten die Schadenmeldung an die entsprechende Gesellschaft weiter.</li>
+                <li><i class="fa-solid fa-3"></i> Wir melden uns telefonisch oder per E-Mail bei Ihnen, um das weitere Vorgehen abzustimmen.</li>
+              </ul>
+            </div>
+
+            <div class="action-wrap">
+              <button class="btn btn-primary" (click)="resetForm()">
+                Weitere Schadenmeldung einreichen
+              </button>
+              <a routerLink="/" class="btn btn-secondary">
+                Zur Startseite
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Right side: Quick Info & Rules -->
+      <div class="info-sidebar">
+        <div class="card info-card glass-panel sticky-sidebar">
+          <h3><i class="fa-solid fa-shield-halved"></i> Wichtige Verhaltensregeln</h3>
+          <p class="sidebar-intro">Beachten Sie im Schadenfall bitte folgende Punkte für eine reibungslose Regulierung:</p>
+          
+          <ul class="rule-list">
+            <li>
+              <div class="rule-icon"><i class="fa-solid fa-circle-info"></i></div>
+              <div class="rule-text">
+                <strong>Ruhe bewahren</strong>
+                <span>Sichern Sie Gefahrenstellen ab und verhindern Sie Folgeschäden (z. B. Wasser abdrehen).</span>
+              </div>
+            </li>
+            <li>
+              <div class="rule-icon"><i class="fa-solid fa-camera"></i></div>
+              <div class="rule-text">
+                <strong>Schaden dokumentieren</strong>
+                <span>Machen Sie detaillierte Fotos vom Schaden und heben Sie beschädigte Gegenstände auf.</span>
+              </div>
+            </li>
+            <li>
+              <div class="rule-icon"><i class="fa-solid fa-hand-holding-hand"></i></div>
+              <div class="rule-text">
+                <strong>Keine voreiligen Arbeiten</strong>
+                <span>Führen Sie keine endgültigen Reparaturen vor Abstimmung mit dem Versicherer durch.</span>
+              </div>
+            </li>
+            <li>
+              <div class="rule-icon"><i class="fa-solid fa-phone"></i></div>
+              <div class="rule-text">
+                <strong>Direktkontakt bei Fragen</strong>
+                <span>Sie erreichen uns zu unseren Bürozeiten direkt unter:<br><strong>+49 8631 14178</strong></span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

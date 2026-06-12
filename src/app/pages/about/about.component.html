@@ -1,0 +1,228 @@
+<section class="about-hero">
+  <div class="container about-hero-container">
+    <span class="badge">Über uns</span>
+    <h1>Lernen Sie uns kennen</h1>
+    <p class="lead-text">Erfahren Sie mehr über unsere Werte, unsere genossenschaftliche Unabhängigkeit und unsere Leistungen.</p>
+  </div>
+</section>
+
+<section class="section about-nav-section">
+  <div class="container">
+    <!-- Tab Navigation -->
+    <div class="tab-nav-wrapper">
+      <div class="tab-nav">
+        <button class="tab-btn" [ngClass]="{'active': selectedTab === 'portrait'}" (click)="selectTab('portrait')">
+          <i class="fa-solid fa-address-card"></i> Kurzportrait
+        </button>
+        <button class="tab-btn" [ngClass]="{'active': selectedTab === 'aufgabe'}" (click)="selectTab('aufgabe')">
+          <i class="fa-solid fa-list-check"></i> Unsere Aufgabe
+        </button>
+        <button class="tab-btn" [ngClass]="{'active': selectedTab === 'taetigkeit'}" (click)="selectTab('taetigkeit')">
+          <i class="fa-solid fa-briefcase"></i> Tätigkeit
+        </button>
+        <button class="tab-btn" [ngClass]="{'active': selectedTab === 'partner'}" (click)="selectTab('partner')">
+          <i class="fa-solid fa-handshake"></i> Partner & VEMA
+        </button>
+        <button class="tab-btn" [ngClass]="{'active': selectedTab === 'karriere'}" (click)="selectTab('karriere')">
+          <i class="fa-solid fa-user-tie"></i> Karriere
+        </button>
+      </div>
+    </div>
+
+    <!-- Tab Content -->
+    <div class="tab-content-area">
+      
+      <!-- Portrait Tab -->
+      <div class="tab-pane animate-fade-in" *ngIf="selectedTab === 'portrait'">
+        <div class="content-split-layout">
+          <div class="text-content">
+            <h2>Firmenportrait</h2>
+            <p class="highlight-paragraph">
+              Das Versicherungsbüro Hinmüller GmbH & Co. KG versteht sich als regional tätiges Versicherungsmaklerunternehmen für Landwirtschaft, Industrie, Handel und Handwerk.
+            </p>
+            <p>
+              Unsere klassische Kundenausrichtung verbinden wir mit unserer Philosophie, „Dienstleistungen vor Ort" zu erbringen. So ist für uns Kundennähe ein wichtiges Kriterium, um schnelles und flexibles Handeln und Agieren zu gewährleisten.
+            </p>
+            <p>
+              Unsere Führungskräfte und Mitarbeiter sind hochqualifiziert und können auf langjährige Tätigkeiten und Erfahrungen in der Versicherungswirtschaft verweisen. Durch einen persönlichen Kontakt zu unseren Kunden dokumentieren wir unsere Einstellung als Dienstleister für das betriebliche Versicherungswesen.
+            </p>
+            <p>
+              Sie selbst und Ihr Unternehmen gegen Risiken abzusichern, ist unser tägliches Geschäft. Wir beraten und informieren Sie über sinnvollen und fachlich kompetenten Versicherungsschutz.
+            </p>
+            <p>
+              Dazu gehört es, dass wir ebenso Ihre bestehenden Versicherungen auf Inhalt, Prämie sowie weitere Verbesserungen überprüfen und Ihnen gegebenenfalls entsprechende Änderungsvorschläge unterbreiten.
+            </p>
+          </div>
+          <div class="side-card-content">
+            <div class="card info-box">
+              <h3>Ihre Vorteile</h3>
+              <ul class="benefit-list">
+                <li><i class="fa-solid fa-check"></i> <strong>Kostenlos:</strong> Unsere Beratung und Vermittlung kostet Sie keinen Cent extra.</li>
+                <li><i class="fa-solid fa-check"></i> <strong>Kundennähe:</strong> Beratung vor Ort in Mettenheim.</li>
+                <li><i class="fa-solid fa-check"></i> <strong>Profi-Service:</strong> Langjährige Branchenerfahrung.</li>
+              </ul>
+              <div class="action-wrap">
+                <a routerLink="/contact" class="btn btn-primary">Gesprächstermin vereinbaren</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Aufgabe Tab -->
+      <div class="tab-pane animate-fade-in" *ngIf="selectedTab === 'aufgabe'">
+        <div class="content-split-layout">
+          <div class="text-content">
+            <h2>Welcher Versicherer passt zu Ihnen?</h2>
+            <p>
+              Es ist nicht leicht, die Tarif- und Produktvielfalt der Versicherungsgesellschaften zu überblicken. <strong>Wir machen das für Sie.</strong>
+            </p>
+            <p>
+              Unser Haus arbeitet mit einer Vielzahl von Versicherungsgesellschaften zusammen, die folgende Kriterien erfüllen:
+            </p>
+            
+            <div class="criteria-grid">
+              <div class="criteria-item">
+                <span class="criteria-num">01</span>
+                <p>Der Versicherer ist in Deutschland zugelassen und unterliegt der nationalen Finanzaufsicht durch die <strong>BaFin</strong>.</p>
+              </div>
+              <div class="criteria-item">
+                <span class="criteria-num">02</span>
+                <p>Der Versicherer stellt auf den Bedarf von Versicherungsmaklern abgestimmte Arbeitsmittel, Geschäftsabläufe und Ansprechpartner bereit.</p>
+              </div>
+              <div class="criteria-item">
+                <span class="criteria-num">03</span>
+                <p>Der Versicherer vergütet die übliche Courtage für die Vermittlung von Verträgen (keine versteckten Gebühren für Sie).</p>
+              </div>
+            </div>
+
+            <h3>Worin sehen wir unsere Aufgabe?</h3>
+            <p>
+              Ob im gewerblichen, landwirtschaftlichen oder privaten Bereich – wir beraten Sie kompetent zum Versicherungsschutz. Bei der Schadenabwicklung unterstützen wir Sie aktiv.
+            </p>
+            <p>
+              Grundsätzlich sind wir bestrebt, unsere Kunden gesamtheitlich zu beraten und zu betreuen. Damit haben wir einen Gesamtüberblick über Ihre Verträge, vermeiden kostspielige Über- oder Unterversicherungen und Sie genießen den Vorteil eines einzigen, festen Ansprechpartners.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tätigkeit Tab -->
+      <div class="tab-pane animate-fade-in" *ngIf="selectedTab === 'taetigkeit'">
+        <h2>Was können wir für Sie tun?</h2>
+        <p class="intro-p">Als Ihr Versicherungsmakler übernehmen wir alle Kernaufgaben rund um Ihre Risikoabsicherung:</p>
+
+        <div class="service-details-grid">
+          <div class="card service-detail-card">
+            <div class="service-num"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+            <h3>Risikoanalyse</h3>
+            <p>Jeder Mensch und jeder Betrieb ist individuell und benötigt einen maßgeschneiderten Schutz. Wir prüfen exakt, gegen welche Gefahren in Ihrem Fall vorgesorgt werden soll.</p>
+          </div>
+
+          <div class="card service-detail-card">
+            <div class="service-num"><i class="fa-solid fa-file-signature"></i></div>
+            <h3>Vertragsgestaltung</h3>
+            <p>Wo immer es möglich oder sinnvoll ist, nehmen wir direkten Einfluss auf den Inhalt der Policen und vereinbaren risiko- und marktgerechte Prämien.</p>
+          </div>
+
+          <div class="card service-detail-card">
+            <div class="service-num"><i class="fa-solid fa-network-wired"></i></div>
+            <h3>Versicherer-Netzwerk</h3>
+            <p>Wir platzieren unterschiedliche Risiken bei verschiedenen Gesellschaften – jeweils dort, wo das beste Preis-Leistungs-Verhältnis und ein reibungsloser Ablauf gewährleistet sind.</p>
+          </div>
+
+          <div class="card service-detail-card">
+            <div class="service-num"><i class="fa-solid fa-user-shield"></i></div>
+            <h3>Betreuung</h3>
+            <p>Wir entlasten Sie von zeitraubenden Verwaltungsarbeiten und passen Ihren Versicherungsschutz laufend an veränderte Risiko- und Marktverhältnisse an.</p>
+          </div>
+
+          <div class="card service-detail-card">
+            <div class="service-num"><i class="fa-solid fa-kit-medical"></i></div>
+            <h3>Schadenregulierung</h3>
+            <p>Im Schadenfall stehen wir auf Ihrer Seite, führen Verhandlungen mit Versicherern und Gutachtern und begleiten die Abwicklung bis zur Auszahlung der Entschädigung.</p>
+          </div>
+
+          <div class="card service-detail-card">
+            <div class="service-num"><i class="fa-solid fa-scale-balanced"></i></div>
+            <h3>Sachverstand &amp; IHK-Aufsicht</h3>
+            <p>Gemäß der EU-Vermittlerrichtlinie unterstehen wir der Aufsicht durch die IHK. Wir garantieren geprüfte Sachkunde, geordnete Vermögensverhältnisse und umfangreiche Dokumentationspflichten zu Ihrer Sicherheit.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Partner Tab -->
+      <div class="tab-pane animate-fade-in" *ngIf="selectedTab === 'partner'">
+        <div class="content-split-layout">
+          <div class="text-content">
+            <h2>Partnerschaft &amp; Mitgliedschaften</h2>
+            <h3>VEMA eG</h3>
+            <p>
+              Wir nutzen das Dienstleistungsangebot der <strong>VEMA Versicherungsmakler Genossenschaft eG</strong> zum Vorteil unserer Kunden.
+            </p>
+            <p>
+              Die VEMA eG ist ein genossenschaftlicher Zusammenschluss von qualifizierten, inhabergeführten Versicherungsmaklern. Nur Makler, die strenge Qualitätskriterien hinsichtlich Qualifikation, Erfahrung und Zuverlässigkeit erfüllen, werden in die Genossenschaft aufgenommen.
+            </p>
+            <p>
+              Durch die Bündelung der Interessen und die Nutzung des VEMA-Dienstleistungsangebotes können wir Ihnen exklusive Deckungskonzepte und Versicherungsprodukte mit einem ausgezeichneten Preis-Leistungsverhältnis zur Verfügung stellen, die Einzelmaklern sonst verschlossen bleiben.
+            </p>
+            
+            <h3>MRVV &amp; Landwirtschaft</h3>
+            <p>
+              Als regionaler Partner im Bereich des <strong>Maschinenring-Versicherungsdienstes (MRVV)</strong> sind wir der erste Ansprechpartner für landwirtschaftliche Betriebe im Raum Mettenheim. Wir kennen die spezifischen Anforderungen der Landwirtschaft und sichern Ihren Hof, Ihre Ernte und Ihren Fuhrpark verlässlich ab.
+            </p>
+          </div>
+          <div class="side-card-content">
+            <div class="card partner-highlight">
+              <h4>VEMA-Vorteile auf einen Blick:</h4>
+              <ul class="bullet-list-styled">
+                <li>Exklusive Deckungskonzepte</li>
+                <li>Bessere Schadenabwicklung</li>
+                <li>Bevorzugte Tarife &amp; Klauseln</li>
+                <li>Garantierter Erhalt des Maklerstatus</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Karriere Tab -->
+      <div class="tab-pane animate-fade-in" *ngIf="selectedTab === 'karriere'">
+        <h2>Karriere im Versicherungsbüro</h2>
+        <p class="intro-p">Zur Verstärkung unseres Teams in Mettenheim suchen wir zum nächstmöglichen Einstieg:</p>
+
+        <div class="jobs-list">
+          <div class="card job-card">
+            <div class="job-header">
+              <h3>Vertriebsunterstützung im Innendienst (m/w/d)</h3>
+              <span class="badge badge-accent">Vollzeit / Teilzeit</span>
+            </div>
+            <p>
+              Unterstützen Sie unsere Makler bei der Erstellung von Angeboten, der Kundenbetreuung und der Schadenabwicklung. Sie verfügen über eine kaufmännische Ausbildung in der Versicherungswirtschaft und arbeiten kundenorientiert.
+            </p>
+          </div>
+
+          <div class="card job-card">
+            <div class="job-header">
+              <h3>Auszubildende zum Versicherungskaufmann (m/w/d)</h3>
+              <span class="badge">Ausbildung</span>
+            </div>
+            <p>
+              Starten Sie Ihre Karriere in einer krisensicheren und abwechslungsreichen Branche. Wir bieten Ihnen eine praxisnahe Ausbildung mit hervorragenden Übernahmechancen und individueller Förderung.
+            </p>
+          </div>
+        </div>
+
+        <div class="apply-box glass-panel">
+          <h3>Interessiert? Werden Sie Teil unseres Teams!</h3>
+          <p>Senden Sie uns Ihre aussagekräftigen Bewerbungsunterlagen per E-Mail oder rufen Sie uns einfach direkt für ein erstes Kennenlernen an.</p>
+          <div class="apply-actions">
+            <a href="mailto:info@versicherungsbuero-hinmueller.com" class="btn btn-primary"><i class="fa-solid fa-envelope"></i> Jetzt per E-Mail bewerben</a>
+            <a href="tel:+49863114178" class="btn btn-secondary"><i class="fa-solid fa-phone"></i> Direkt anrufen</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

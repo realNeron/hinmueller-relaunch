@@ -1,0 +1,296 @@
+<section class="legal-hero">
+  <div class="container legal-hero-container">
+    <span class="badge">Rechtliches</span>
+    <h1>Impressum & Datenschutz</h1>
+    <p class="lead-text">
+      Transparenz ist das Fundament einer vertrauensvollen Partnerschaft. Hier finden Sie unsere Pflichtangaben, Erstinformationen und Datenschutzerklärung.
+    </p>
+  </div>
+</section>
+
+<section class="section legal-content-section">
+  <div class="container">
+    
+    <!-- Tab Navigation -->
+    <div class="tab-nav-wrapper">
+      <div class="tab-nav">
+        <button class="tab-btn" [class.active]="selectedTab === 'impressum'" (click)="selectTab('impressum')">
+          <i class="fa-solid fa-paragraph"></i> Impressum
+        </button>
+        <button class="tab-btn" [class.active]="selectedTab === 'erstinformation'" (click)="selectTab('erstinformation')">
+          <i class="fa-solid fa-circle-info"></i> Erstinformation
+        </button>
+        <button class="tab-btn" [class.active]="selectedTab === 'datenschutz'" (click)="selectTab('datenschutz')">
+          <i class="fa-solid fa-shield-halved"></i> Datenschutz
+        </button>
+      </div>
+    </div>
+
+    <!-- Tab Content Area -->
+    <div class="tab-content-area card glass-panel">
+      
+      <!-- IMPRESSUM TAB -->
+      <div class="tab-pane animate-fade-in" *ngIf="selectedTab === 'impressum'">
+        <h2>Impressum</h2>
+        <p class="section-intro">Pflichtangaben nach § 5 TMG und § 18 MStV.</p>
+
+        <div class="legal-grid">
+          <div class="legal-block">
+            <h3>Diensteanbieter / Anschrift</h3>
+            <p>
+              <strong>Versicherungsbüro Hinmüller GmbH & Co. KG</strong><br>
+              Ampfinger Str. 29<br>
+              84562 Mettenheim<br>
+              Deutschland
+            </p>
+            <p>
+              <strong>Telefon:</strong> +49 8631 14178<br>
+              <strong>Fax:</strong> +49 8631 14108<br>
+              <strong>E-Mail:</strong> <a href="mailto:versicherungsbuero@hinmueller.com">versicherungsbuero&#64;hinmueller.com</a><br>
+              <strong>Internet:</strong> <a routerLink="/">www.versicherungsbuero-hinmueller.com</a>
+            </p>
+          </div>
+
+          <div class="legal-block">
+            <h3>Vertretungsverhältnisse & Register</h3>
+            <p>
+              <strong>Persönlich haftender Gesellschafter (Komplementär):</strong><br>
+              Hinmüller Verwaltungs GmbH, Mettenheim<br>
+              Amtsgericht Traunstein HRB 16295
+            </p>
+            <p>
+              <strong>Vertreten durch die Geschäftsführerin:</strong><br>
+              Frau Brigitte Hargasser
+            </p>
+            <p>
+              <strong>Registergericht & Registernummer:</strong><br>
+              Amtsgericht Traunstein, HRA 8733
+            </p>
+          </div>
+
+          <div class="legal-block full-width">
+            <h3>Tätigkeit & Zulassung (§ 34d GewO)</h3>
+            <p>
+              <strong>Berufsbezeichnung:</strong> Versicherungsmakler mit Erlaubnis nach § 34d Abs. 1 Gewerbeordnung (GewO), Bundesrepublik Deutschland.
+            </p>
+            <p>
+              <strong>Registrierungsnummer im Vermittlerregister:</strong> D-WZNB-2X2PI-02<br>
+              Eintragung überprüfbar unter: <a href="https://www.vermittlerregister.info" target="_blank" rel="noopener noreferrer">www.vermittlerregister.info</a>
+            </p>
+            <p>
+              <strong>Zuständige Erlaubnis- und Aufsichtsbehörde:</strong><br>
+              Industrie- und Handelskammer für München und Oberbayern<br>
+              Max-Joseph-Str. 2, 80333 München<br>
+              Telefon: +49 89 5116-0 | Web: <a href="https://www.ihk-muenchen.de" target="_blank" rel="noopener noreferrer">www.ihk-muenchen.de</a>
+            </p>
+          </div>
+
+          <div class="legal-block full-width">
+            <h3>Streitbeilegung & Schlichtungsstellen</h3>
+            <p>
+              Gemäß § 36 VSBG und § 17 Abs. 4 VersVermV sind wir zur Teilnahme an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle bereit. Folgende Schlichtungsstellen können angerufen werden:
+            </p>
+            <ul>
+              <li>
+                <strong>Versicherungsombudsmann e.V.:</strong><br>
+                Postfach 08 06 32, 10006 Berlin | Web: <a href="https://www.versicherungsombudsmann.de" target="_blank" rel="noopener noreferrer">www.versicherungsombudsmann.de</a>
+              </li>
+              <li>
+                <strong>Ombudsmann Private Kranken- und Pflegeversicherung:</strong><br>
+                Postfach 06 02 22, 10052 Berlin | Web: <a href="https://www.pkv-ombudsmann.de" target="_blank" rel="noopener noreferrer">www.pkv-ombudsmann.de</a>
+              </li>
+              <li>
+                <strong>Online-Streitbeilegung (OS-Plattform) der EU:</strong><br>
+                Web: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">ec.europa.eu/consumers/odr</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="legal-block full-width">
+            <h3>Redaktionelle Verantwortung</h3>
+            <p>
+              Verantwortlich für redaktionell-journalistische Inhalte nach § 18 Abs. 2 MStV:<br>
+              <strong>Gabriele Hübner</strong>, Unterkonnersreuth 29, 95500 Heinersreuth.
+            </p>
+          </div>
+
+          <div class="legal-block full-width">
+            <h3>Transparenzverordnung (TVO) - Nachhaltigkeit</h3>
+            <p>
+              <strong>Einbeziehung von Nachhaltigkeitsrisiken (§ 3 TVO):</strong><br>
+              Bei der Beratung berücksichtigen wir Nachhaltigkeitsrisiken, indem wir die Informationen der Produktanbieter heranziehen. Produktpartner, die keine erkennbare Strategie zu Nachhaltigkeitsrisiken haben, werden ggf. nicht angeboten.
+            </p>
+            <p>
+              <strong>Berücksichtigung nachteiliger Auswirkungen (§ 4 TVO):</strong><br>
+              Wir berücksichtigen auf Wunsch Nachhaltigkeitspräferenzen der Kunden. Im Rahmen des Auswahlprozesses stützen wir uns auf die von den Produktanbietern bereitgestellten Informationen. Eine eigene Plausibilitätsprüfung oder Einstufungsmethode wenden wir nicht an.
+            </p>
+            <p>
+              <strong>Vergütungspolitik (§ 5 TVO):</strong><br>
+              Unsere Vergütung (Courtage/Zahlung) wird nicht durch das Vorliegen oder Nichtvorliegen von Nachhaltigkeitsrisiken beeinflusst.
+            </p>
+          </div>
+
+          <div class="legal-block full-width">
+            <h3>Bildnachweise</h3>
+            <p>Bildlizenzen erworben von stock.adobe.com:</p>
+            <ul>
+              <li>„Lonely tree in a valley on the pages of book“ | Datei Nr.: 226576743 | Von Bashkatov</li>
+              <li>„smoke fire explosion flame farm destruction disaster“ | Datei Nr.: 293930582 | Von Jacques Durocher</li>
+              <li>„Jobs“ | Datei Nr.: 88007247 | Von Marco2811</li>
+            </ul>
+            <p>Alle weiteren in diesem Webauftritt verwendeten Bilder und Grafiken sind Eigentum des Versicherungsbüros Hinmüller GmbH & Co. KG.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ERSTINFORMATION TAB -->
+      <div class="tab-pane animate-fade-in" *ngIf="selectedTab === 'erstinformation'">
+        <h2>Erstinformation</h2>
+        <p class="section-intro">Gesetzliche Statusinformation gemäß § 15 der Versicherungsvermittlungsverordnung (VersVermV).</p>
+
+        <div class="legal-document">
+          <div class="doc-header text-center">
+            <h3>Erst- / Statusinformation</h3>
+            <p class="text-muted">Stand: 03/2023</p>
+          </div>
+
+          <div class="doc-section">
+            <h4>1. Name, Anschrift und Kontaktdaten</h4>
+            <p>
+              Versicherungsbüro Hinmüller GmbH & Co. KG<br>
+              Ampfinger Str. 29, 84562 Mettenheim<br>
+              Telefon: +49 8631 14178 | E-Mail: versicherungsbuero&#64;hinmueller.com<br>
+              Vertreten durch die Komplementärin Hinmüller Verwaltungs GmbH (Geschäftsführerin Brigitte Hargasser)
+            </p>
+          </div>
+
+          <div class="doc-section">
+            <h4>2. Status des Vermittlers nach der Gewerbeordnung</h4>
+            <p>
+              Wir sind als <strong>Versicherungsmakler</strong> mit einer Erlaubnis nach § 34d Abs. 1 der Gewerbeordnung (GewO) tätig. Wir sind in der Bundesrepublik Deutschland zugelassen und im Vermittlerregister eingetragen unter der Registrierungsnummer: <strong>D-WZNB-2X2PI-02</strong>.
+            </p>
+          </div>
+
+          <div class="doc-section">
+            <h4>3. Beratung und Vergütung</h4>
+            <p>
+              Unsere Tätigkeit beinhaltet eine Beratung. Die Vergütung unserer Vermittlungs- und Beratungstätigkeit erfolgt als:
+            </p>
+            <ul>
+              <li>in der Versicherungsprämie enthaltene Courtage, die vom jeweiligen Versicherungsunternehmen ausgezahlt wird, oder</li>
+              <li>konkret vereinbarte Zahlung (Honorar) durch den Kunden, oder</li>
+              <li>eine Kombination aus beidem.</li>
+            </ul>
+            <p>Dies ist abhängig von den Wünschen des Kunden und den Versicherungsprodukten, welche vermittelt werden.</p>
+          </div>
+
+          <div class="doc-section">
+            <h4>4. Gemeinsame Registerstelle nach § 11a Abs. 1 GewO</h4>
+            <p>
+              DIHK | Deutsche Industrie- und Handelskammer<br>
+              Breite Straße 29, 10178 Berlin | Telefon: 0180-600-585-0 (0,20 €/Anruf)<br>
+              Register abrufbar im Internet unter: <a href="https://www.vermittlerregister.info" target="_blank" rel="noopener noreferrer">www.vermittlerregister.info</a>
+            </p>
+          </div>
+
+          <div class="doc-section">
+            <h4>5. Schlichtungsstellen für außergerichtliche Streitbeilegung</h4>
+            <p>
+              Bei Streitigkeiten zwischen Vermittler und Kunde können folgende Ombudsleute zur außergerichtlichen Streitbeilegung kontaktiert werden:
+            </p>
+            <p>
+              <strong>Versicherungsombudsmann e.V.:</strong><br>
+              Postfach 08 06 32, 10006 Berlin | Web: <a href="https://www.versicherungsombudsmann.de" target="_blank" rel="noopener noreferrer">www.versicherungsombudsmann.de</a>
+            </p>
+            <p>
+              <strong>Ombudsmann Private Kranken- und Pflegeversicherung:</strong><br>
+              Postfach 06 02 22, 10052 Berlin | Web: <a href="https://www.pkv-ombudsmann.de" target="_blank" rel="noopener noreferrer">www.pkv-ombudsmann.de</a>
+            </p>
+          </div>
+
+          <div class="doc-section">
+            <h4>6. Berufsrechtliche Regelungen</h4>
+            <ul>
+              <li>§ 34d Gewerbeordnung (GewO)</li>
+              <li>§§ 59 - 68 Versicherungsvertragsgesetz (VVG)</li>
+              <li>Versicherungsvermittlerverordnung (VersVermV)</li>
+            </ul>
+            <p>Die berufsrechtlichen Regelungen können über die vom Bundesministerium der Justiz betriebene Homepage abgerufen werden: <a href="https://www.gesetze-im-internet.de" target="_blank" rel="noopener noreferrer">www.gesetze-im-internet.de</a></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- DATENSCHUTZ TAB -->
+      <div class="tab-pane animate-fade-in" *ngIf="selectedTab === 'datenschutz'">
+        <h2>Datenschutzerklärung</h2>
+        <p class="section-intro">Informationen zur Verarbeitung Ihrer personenbezogenen Daten gemäß Art. 13 und 14 DSGVO.</p>
+
+        <div class="legal-document">
+          <div class="doc-section">
+            <h4>1. Name und Anschrift des Verantwortlichen</h4>
+            <p>
+              Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) und des Bundesdatenschutzgesetzes (BDSG) ist:<br>
+              <strong>Versicherungsbüro Hinmüller GmbH & Co. KG</strong><br>
+              Ampfinger Str. 29, 84562 Mettenheim<br>
+              Telefon: +49 8631 14178 | E-Mail: versicherungsbuero&#64;hinmueller.com<br>
+              Geschäftsführung: Frau Brigitte Hargasser (Komplementär-GmbH)
+            </p>
+          </div>
+
+          <div class="doc-section">
+            <h4>2. Zuständige Aufsichtsbehörde</h4>
+            <p>
+              Bei datenschutzrechtlichen Beschwerden können Sie sich an die zuständige Aufsichtsbehörde wenden:<br>
+              <strong>Bayerisches Landesamt für Datenschutzaufsicht (BayLDA)</strong><br>
+              Promenade 27 (Schloss), 91522 Ansbach<br>
+              Telefon: +49 981 53-1300 | Web: <a href="https://www.lda.bayern.de" target="_blank" rel="noopener noreferrer">www.lda.bayern.de</a>
+            </p>
+          </div>
+
+          <div class="doc-section">
+            <h4>3. Grundsätze der Datenverarbeitung</h4>
+            <p>
+              Bei der Verarbeitung von personenbezogenen Daten halten wir uns an folgende gesetzliche Grundsätze:
+            </p>
+            <ul>
+              <li><strong>Rechtmäßigkeit & Transparenz:</strong> Daten werden nur mit Rechtsgrundlage verarbeitet.</li>
+              <li><strong>Zweckbindung:</strong> Daten werden nur für festgeschriebene Zwecke erhoben (z.B. Maklervertrag).</li>
+              <li><strong>Datenminimierung:</strong> Es werden nur Daten erhoben, die zwingend erforderlich sind.</li>
+              <li><strong>Vertraulichkeit & Sicherheit:</strong> Wir nutzen moderne IT-Sicherheitsstandards zum Schutz Ihrer Daten.</li>
+            </ul>
+          </div>
+
+          <div class="doc-section">
+            <h4>4. Erhebung und Speicherung von Daten</h4>
+            <p>
+              Das Erheben, Verarbeiten und Speichern personenbezogener Daten (wie Name, Geburtsdatum, Anschrift, E-Mail-Adresse und Gesundheitsangaben bei bestimmten Personenversicherungen) geschieht auf Basis unseres Maklerauftrages und den Einwilligungserklärungen (Art. 6 Abs. 1 lit. a, b DSGVO). Ohne diese Einwilligung können wir nicht für Sie tätig werden.
+            </p>
+            <p>
+              Ihre Daten werden an Versicherungsgesellschaften und IT-Dienstleister weitergegeben, soweit dies zur Deckung und Verwaltung Ihres gewünschten Versicherungsschutzes erforderlich ist.
+            </p>
+          </div>
+
+          <div class="doc-section">
+            <h4>5. Ihre Rechte als betroffene Person</h4>
+            <p>Sie haben jederzeit folgende Rechte gegenüber uns:</p>
+            <ul>
+              <li><strong>Recht auf Auskunft (Art. 15 DSGVO):</strong> Sie können Auskunft über Ihre von uns gespeicherten Daten verlangen.</li>
+              <li><strong>Recht auf Berichtigung (Art. 16 DSGVO):</strong> Sie können unrichtige Daten korrigieren lassen.</li>
+              <li><strong>Recht auf Löschung (Art. 17 DSGVO):</strong> Sie können die Löschung Ihrer Daten verlangen, sofern keine gesetzlichen Aufbewahrungsfristen (z. B. steuerliche oder aufsichtsrechtliche Pflichten) entgegenstehen.</li>
+              <li><strong>Recht auf Datenübertragbarkeit (Art. 20 DSGVO):</strong> Sie haben das Recht, Daten in einem maschinenlesbaren Format zu erhalten.</li>
+              <li><strong>Recht auf Widerspruch (Art. 21 DSGVO):</strong> Sie können der Datenverarbeitung widersprechen.</li>
+            </ul>
+          </div>
+
+          <div class="doc-section">
+            <h4>6. Speicherdauer</h4>
+            <p>
+              Wir löschen oder sperren Ihre Daten, sobald der Speicherungszweck entfällt (z.B. Beendigung des Maklervertrages), es sei denn, gesetzliche Bestimmungen verpflichten uns zur längeren Aufbewahrung (z.B. 10 Jahre nach StGB/AO für steuerrechtlich relevante Buchungsbelege).
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

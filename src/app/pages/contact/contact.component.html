@@ -1,0 +1,327 @@
+<section class="contact-hero">
+  <div class="container contact-hero-container">
+    <span class="badge">Kontakt</span>
+    <h1>Treten Sie mit uns in Kontakt</h1>
+    <p class="lead-text">
+      Ob persönliche Beratung vor Ort in Mettenheim, telefonische Auskunft oder Nachricht per Webformular: Wir freuen uns auf Sie und sind gerne für Sie da.
+    </p>
+  </div>
+</section>
+
+<section class="section contact-content-section">
+  <div class="container">
+    <div class="contact-split-layout">
+      
+      <!-- Left Column: Contact Details, Hours, Map -->
+      <div class="contact-info-column">
+        
+        <!-- Contact Details Card -->
+        <div class="card info-card glass-panel mb-4">
+          <h3>Direkter Kontakt</h3>
+          <p class="info-intro">Nutzen Sie unsere direkten Kanäle für schnelle Anfragen.</p>
+          
+          <ul class="contact-details-list">
+            <li>
+              <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+              <div class="contact-text">
+                <strong>Telefon</strong>
+                <a href="tel:+49863114178" class="contact-link">+49 8631 14178</a>
+              </div>
+            </li>
+            <li>
+              <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div class="contact-text">
+                <strong>E-Mail</strong>
+                <a href="mailto:info@versicherungsbuero-hinmueller.com" class="contact-link">info&#64;versicherungsbuero-hinmueller.com</a>
+              </div>
+            </li>
+            <li>
+              <div class="contact-icon"><i class="fa-solid fa-fax"></i></div>
+              <div class="contact-text">
+                <strong>Fax</strong>
+                <span>+49 8631 14108</span>
+              </div>
+            </li>
+            <li>
+              <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div class="contact-text">
+                <strong>Anschrift</strong>
+                <span>Ampfinger Str. 29, 84562 Mettenheim</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Business Hours Card -->
+        <div class="card info-card glass-panel mb-4">
+          <h3><i class="fa-solid fa-clock"></i> Bürozeiten</h3>
+          <p class="info-intro">Zu diesen Zeiten stehen wir Ihnen gerne persönlich zur Verfügung:</p>
+          
+          <table class="hours-table">
+            <tr>
+              <td>Montag - Donnerstag</td>
+              <td>08:00 - 12:00 Uhr <br> 13:00 - 17:00 Uhr</td>
+            </tr>
+            <tr>
+              <td>Freitag</td>
+              <td>08:00 - 12:00 Uhr</td>
+            </tr>
+            <tr>
+              <td>Samstag & Sonntag</td>
+              <td>Geschlossen</td>
+            </tr>
+          </table>
+          <p class="hours-footnote">Termine außerhalb der regulären Bürozeiten sind nach vorheriger Absprache flexibel möglich.</p>
+        </div>
+
+        <!-- Map Placeholder Card -->
+        <div class="card info-card glass-panel map-card">
+          <h3>Anfahrt & Wegbeschreibung</h3>
+          <p class="info-intro">Sie finden uns zentral gelegen in Mettenheim, unweit der B12 / A94.</p>
+          
+          <div class="mock-map">
+            <div class="map-overlay">
+              <i class="fa-solid fa-location-pin map-pin animate-bounce"></i>
+              <div class="map-tooltip">
+                <strong>Versicherungsbüro Hinmüller</strong>
+                <span>Ampfinger Str. 29, Mettenheim</span>
+              </div>
+            </div>
+            <!-- Interactive map buttons -->
+            <a 
+              href="https://www.google.com/maps/dir/?api=1&destination=Ampfinger+Str.+29,+84562+Mettenheim" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="btn btn-primary btn-sm map-button"
+            >
+              <i class="fa-solid fa-route"></i> Route in Google Maps planen
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Contact Form -->
+      <div class="contact-form-column">
+        <div class="card form-card glass-panel">
+          
+          <!-- Thank You Screen -->
+          <div class="success-screen animate-fade-in" *ngIf="isSubmitted">
+            <div class="success-icon-wrapper">
+              <i class="fa-solid fa-envelope-circle-check"></i>
+            </div>
+            <h2>Nachricht erfolgreich gesendet!</h2>
+            <p class="success-intro">
+              Vielen Dank für Ihre Nachricht. Wir haben Ihre Anfrage erhalten und werden uns schnellstmöglich bei Ihnen melden (in der Regel innerhalb von 24 Stunden an Werktagen).
+            </p>
+            <button class="btn btn-primary" (click)="resetForm()">
+              Weitere Nachricht senden
+            </button>
+          </div>
+
+          <!-- Form Screen -->
+          <form (ngSubmit)="submitForm()" #contactForm="ngForm" *ngIf="!isSubmitted" class="animate-fade-in">
+            <h2>Schreiben Sie uns eine Nachricht</h2>
+            <p class="form-intro">Füllen Sie einfach das Formular aus – wir setzen uns zeitnah mit Ihnen in Verbindung.</p>
+
+            <div class="grid-2-col">
+              <div class="form-group">
+                <label class="form-label">Anrede *</label>
+                <div class="radio-inline">
+                  <label class="radio-label">
+                    <input type="radio" name="salutation" value="frau" [(ngModel)]="formData.salutation" required /> Frau
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="salutation" value="herr" [(ngModel)]="formData.salutation" required /> Herr
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="name" class="form-label">Ihr Name *</label>
+                <input 
+                  type="text" 
+                  id="name" 
+                  name="name"
+                  [(ngModel)]="formData.name" 
+                  class="form-control"
+                  placeholder="Vor- und Nachname"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="grid-2-col">
+              <div class="form-group">
+                <label for="email" class="form-label">E-Mail-Adresse *</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email"
+                  [(ngModel)]="formData.email" 
+                  class="form-control"
+                  placeholder="name@beispiel.de"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="phone" class="form-label">Telefonnummer</label>
+                <input 
+                  type="tel" 
+                  id="phone" 
+                  name="phone"
+                  [(ngModel)]="formData.phone" 
+                  class="form-control"
+                  placeholder="Für Rückfragen"
+                />
+              </div>
+            </div>
+
+            <div class="grid-2-col">
+              <div class="form-group">
+                <label for="street" class="form-label">Straße / Hausnr.</label>
+                <input 
+                  type="text" 
+                  id="street" 
+                  name="street"
+                  [(ngModel)]="formData.street" 
+                  class="form-control"
+                  placeholder="Musterstraße 12"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="city" class="form-label">PLZ / Ort</label>
+                <input 
+                  type="text" 
+                  id="city" 
+                  name="city"
+                  [(ngModel)]="formData.city" 
+                  class="form-control"
+                  placeholder="84562 Mettenheim"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="subject" class="form-label">Betreff / Anliegen *</label>
+              <select 
+                id="subject" 
+                name="subject"
+                [(ngModel)]="formData.subject" 
+                class="form-control form-select"
+                required
+              >
+                <option value="Allgemeine Anfrage">Allgemeine Anfrage</option>
+                <option value="Beratungstermin">Terminanfrage für Beratung</option>
+                <option value="Rückrufwunsch">Bitte um Rückruf</option>
+                <option value="Angebot">Individuelles Angebot anfordern</option>
+                <option value="Kritik/Lob">Feedback / Sonstiges</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message" class="form-label">Ihre Nachricht *</label>
+              <textarea 
+                id="message" 
+                name="message"
+                [(ngModel)]="formData.message" 
+                class="form-control" 
+                rows="5"
+                placeholder="Wie können wir Ihnen helfen?"
+                required
+              ></textarea>
+            </div>
+
+            <!-- Callbacks / Appointments details -->
+            <div class="grid-2-col">
+              <div class="form-group">
+                <label class="form-label">Rückrufwunsch?</label>
+                <div class="radio-inline">
+                  <label class="radio-label">
+                    <input type="radio" name="callbackDesired" value="ja" [(ngModel)]="formData.callbackDesired" /> Ja
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="callbackDesired" value="nein" [(ngModel)]="formData.callbackDesired" /> Nein
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Beratungstermin gewünscht?</label>
+                <div class="radio-inline">
+                  <label class="radio-label">
+                    <input type="radio" name="appointmentDesired" value="ja" [(ngModel)]="formData.appointmentDesired" /> Ja
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="appointmentDesired" value="nein" [(ngModel)]="formData.appointmentDesired" /> Nein
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group input-half animate-fade-in" *ngIf="formData.appointmentDesired === 'ja'">
+              <label for="preferredDate" class="form-label">Wunschtermin für Beratung *</label>
+              <input 
+                type="datetime-local" 
+                id="preferredDate" 
+                name="preferredDate"
+                [(ngModel)]="formData.preferredDate" 
+                class="form-control"
+                required
+              />
+            </div>
+
+            <!-- Captcha security -->
+            <div class="form-group">
+              <label class="form-label">Sicherheitscode (Spam-Schutz) *</label>
+              <div class="captcha-wrapper">
+                <div class="captcha-box">
+                  {{ captchaCode }}
+                </div>
+                <button type="button" class="btn btn-secondary btn-sm refresh-btn" (click)="generateCaptcha()">
+                  <i class="fa-solid fa-rotate"></i> Neu generieren
+                </button>
+                <input 
+                  type="text" 
+                  id="captchaInput"
+                  name="captchaInput"
+                  [(ngModel)]="formData.captchaInput" 
+                  class="form-control captcha-input" 
+                  placeholder="Code eingeben"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="disclaimer-text">
+              <p>
+                <strong>Hinweis:</strong> Dieses Onlineformular ersetzt nicht die gesetzlich vorgeschriebene Beratung und Dokumentierung. Vor etwaigem Vertragsabschluss werden wir mit Ihnen in Kontakt treten.
+              </p>
+            </div>
+
+            <div class="form-group checkbox-group">
+              <label class="checkbox-label">
+                <input type="checkbox" name="privacyAccepted" [(ngModel)]="formData.privacyAccepted" required />
+                <span>Ich habe die <a routerLink="/legal" fragment="datenschutz" target="_blank" class="legal-link">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zu. *</span>
+              </label>
+            </div>
+
+            <div class="step-actions">
+              <button 
+                type="submit" 
+                class="btn btn-primary btn-submit"
+                [disabled]="!contactForm.form.valid || !formData.captchaInput || !formData.privacyAccepted"
+              >
+                Nachricht senden <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

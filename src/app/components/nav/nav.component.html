@@ -1,0 +1,87 @@
+<header class="glass-header">
+  <div class="container header-container">
+    <div class="logo-area">
+      <a routerLink="/home" (click)="closeMobileMenu()">
+        <img src="/logo.png" alt="Versicherungsbüro Hinmüller" class="header-logo">
+      </a>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav">
+      <ul class="nav-list">
+        <li>
+          <a routerLink="/home" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Startseite</a>
+        </li>
+        <li>
+          <a routerLink="/about" routerLinkActive="active-link">Über uns</a>
+        </li>
+        <li>
+          <a routerLink="/services" routerLinkActive="active-link">Leistungen</a>
+        </li>
+        <li>
+          <a routerLink="/claims" routerLinkActive="active-link">Schadenmanagement</a>
+        </li>
+        <li>
+          <a routerLink="/contact" routerLinkActive="active-link">Kontakt</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a href="tel:+49863114178" class="phone-badge">
+        <i class="fa-solid fa-phone"></i>
+        <span>08631 / 14178</span>
+      </a>
+      
+      <button class="hamburger-btn" (click)="toggleMobileMenu()" aria-label="Menu">
+        <i class="fa-solid" [ngClass]="{'fa-bars': !isMobileMenuOpen, 'fa-xmark': isMobileMenuOpen}"></i>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Navigation Drawer -->
+<div class="mobile-drawer-overlay" [ngClass]="{'open': isMobileMenuOpen}" (click)="closeMobileMenu()"></div>
+<div class="mobile-drawer" [ngClass]="{'open': isMobileMenuOpen}">
+  <div class="drawer-header">
+    <img src="/logo.png" alt="Hinmüller Logo" class="drawer-logo">
+    <button class="close-btn" (click)="closeMobileMenu()">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+  <nav class="mobile-nav">
+    <ul class="mobile-nav-list">
+      <li>
+        <a routerLink="/home" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" (click)="closeMobileMenu()">
+          <i class="fa-solid fa-house"></i> Startseite
+        </a>
+      </li>
+      <li>
+        <a routerLink="/about" routerLinkActive="active-link" (click)="closeMobileMenu()">
+          <i class="fa-solid fa-circle-info"></i> Über uns
+        </a>
+      </li>
+      <li>
+        <a routerLink="/services" routerLinkActive="active-link" (click)="closeMobileMenu()">
+          <i class="fa-solid fa-shield-halved"></i> Leistungen
+        </a>
+      </li>
+      <li>
+        <a routerLink="/claims" routerLinkActive="active-link" (click)="closeMobileMenu()">
+          <i class="fa-solid fa-hand-holding-hand"></i> Schadenmanagement
+        </a>
+      </li>
+      <li>
+        <a routerLink="/contact" routerLinkActive="active-link" (click)="closeMobileMenu()">
+          <i class="fa-solid fa-envelope"></i> Kontakt
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div class="drawer-footer">
+    <p class="drawer-tagline">Die Sicherheit Ihrer Zukunft liegt uns am Herzen.</p>
+    <a href="tel:+49863114178" class="drawer-phone-btn">
+      <i class="fa-solid fa-phone"></i> Jetzt anrufen
+    </a>
+  </div>
+</div>

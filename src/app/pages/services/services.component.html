@@ -1,0 +1,124 @@
+<section class="services-hero">
+  <div class="container services-hero-container">
+    <span class="badge">Unsere Leistungen</span>
+    <h1>Bedarfsgerechter Schutz für alle Lebenslagen</h1>
+    <p class="lead-text">
+      Wir analysieren Ihre Risiken unabhängig, transparent und vorausschauend. Finden Sie das passende Vorsorge- und Sicherheitskonzept.
+    </p>
+  </div>
+</section>
+
+<section class="section services-content-section">
+  <div class="container">
+    <!-- Search and Filter Bar -->
+    <div class="search-filter-wrapper glass-panel">
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input 
+          type="text" 
+          placeholder="Nach Versicherungen oder Leistungen suchen..." 
+          [(ngModel)]="searchTerm"
+          class="search-input"
+        />
+        <button *ngIf="searchTerm" (click)="searchTerm = ''" class="clear-search-btn">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      
+      <div class="filter-tabs">
+        <button 
+          class="filter-tab-btn" 
+          [class.active]="activeTab === 'all'" 
+          (click)="setTab('all')"
+        >
+          Alle Bereiche
+        </button>
+        <button 
+          class="filter-tab-btn" 
+          [class.active]="activeTab === 'private'" 
+          (click)="setTab('private')"
+        >
+          <i class="fa-solid fa-user"></i> Privatkunden
+        </button>
+        <button 
+          class="filter-tab-btn" 
+          [class.active]="activeTab === 'commercial'" 
+          (click)="setTab('commercial')"
+        >
+          <i class="fa-solid fa-briefcase"></i> Gewerbe
+        </button>
+        <button 
+          class="filter-tab-btn" 
+          [class.active]="activeTab === 'agriculture'" 
+          (click)="setTab('agriculture')"
+        >
+          <i class="fa-solid fa-wheat-awn"></i> Landwirtschaft
+        </button>
+      </div>
+    </div>
+
+    <!-- Active Filter Summary -->
+    <div class="active-filter-indicator" *ngIf="searchTerm">
+      <span>Suchergebnisse für: <strong>"{{ searchTerm }}"</strong> ({{ filteredServices.length }} gefunden)</span>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="services-grid animate-fade-in" *ngIf="filteredServices.length > 0">
+      <div class="card service-card" *ngFor="let service of filteredServices" [attr.id]="service.id">
+        <div class="service-card-header">
+          <div class="service-icon-wrapper">
+            <i class="fa-solid" [ngClass]="service.icon"></i>
+          </div>
+          <span class="subcategory-badge">{{ service.subcategory }}</span>
+        </div>
+        
+        <div class="service-card-body">
+          <h3>{{ service.title }}</h3>
+          <p class="service-description">{{ service.shortDesc }}</p>
+          
+          <div class="service-details-list">
+            <h4>Highlights & Leistungen:</h4>
+            <ul>
+              <li *ngFor="let detail of service.details">
+                <i class="fa-solid fa-circle-check"></i> {{ detail }}
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="service-card-footer">
+          <a routerLink="/contact" [queryParams]="{ service: service.id }" class="btn btn-secondary btn-sm card-action-btn">
+            Beratung anfordern <i class="fa-solid fa-arrow-right-long"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div class="empty-services glass-panel animate-fade-in" *ngIf="filteredServices.length === 0">
+      <i class="fa-solid fa-circle-info empty-icon"></i>
+      <h3>Keine Versicherungen gefunden</h3>
+      <p>Es wurden leider keine Leistungen gefunden, die Ihrer Suche entsprechen. Versuchen Sie es mit anderen Begriffen oder kontaktieren Sie uns direkt.</p>
+      <button (click)="searchTerm = ''; activeTab = 'all'" class="btn btn-primary">
+        Alle anzeigen
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- Call to Action Banner -->
+<section class="section section-alt cta-section">
+  <div class="container">
+    <div class="cta-banner glass-panel">
+      <div class="cta-text">
+        <h2>Nicht das Passende gefunden?</h2>
+        <p>Als freier Versicherungsmakler haben wir Zugriff auf nahezu alle Versicherungsgesellschaften am deutschen Markt. Lassen Sie uns gemeinsam Ihren individuellen Bedarf ermitteln.</p>
+      </div>
+      <div class="cta-actions">
+        <a routerLink="/contact" class="btn btn-primary btn-lg">Persönliches Gespräch vereinbaren</a>
+        <a routerLink="/claims" class="btn btn-secondary btn-lg">Schaden melden</a>
+      </div>
+    </div>
+  </div>
+</section>
