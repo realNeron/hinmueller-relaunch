@@ -19,5 +19,10 @@ export class NavComponent {
   closeMobileMenu(): void {
     this.isMobileMenuOpen = false;
   }
+
+  onLogoClick(): void {
+    this.closeMobileMenu();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }
 
